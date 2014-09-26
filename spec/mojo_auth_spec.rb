@@ -38,6 +38,19 @@ describe MojoAuth do
           expect(described_class.test_credentials(credentials, secret: 'something_else')).to be false
         end
       end
+
+      describe 'after the default TTL (1 day) expires' do
+        around do |example|
+          credentials # Create the credentials before advancing the time
+          Timecop.freeze(Time.now + MojoAuth::DAY_IN_SECONDS + 1) do
+            example.run
+          end
+        end
+
+        it 'tests false' do
+          expect(described_class.test_credentials(credentials, secret: secret)).to be false
+        end
+      end
     end
 
     context 'with an asserted ID' do
@@ -45,8 +58,8 @@ describe MojoAuth do
       let(:credentials) { described_class.create_credentials(id: id, secret: secret) }
 
       describe 'for the generated credentials' do
-        it 'tests true' do
-          expect(described_class.test_credentials(credentials, secret: secret)).to be true
+        it 'tests truthy, returning the asserted ID' do
+          expect(described_class.test_credentials(credentials, secret: secret)).to eql(id)
         end
       end
 
@@ -59,6 +72,19 @@ describe MojoAuth do
       describe 'with a different secret' do
         it 'tests false' do
           expect(described_class.test_credentials(credentials, secret: 'something_else')).to be false
+        end
+      end
+
+      describe 'after the default TTL (1 day) expires' do
+        around do |example|
+          credentials # Create the credentials before advancing the time
+          Timecop.freeze(Time.now + MojoAuth::DAY_IN_SECONDS + 1) do
+            example.run
+          end
+        end
+
+        it 'tests false' do
+          expect(described_class.test_credentials(credentials, secret: secret)).to be false
         end
       end
     end

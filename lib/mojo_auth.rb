@@ -10,6 +10,8 @@ require 'mojo_auth/version'
 # MojoAuth is a set of standard approaches to cross-app authentication based on HMAC
 #
 class MojoAuth
+  DAY_IN_SECONDS = 86_400
+
   # Create a new random secret
   # @return [String] a new secret based on /dev/random
   def self.create_secret
@@ -20,9 +22,11 @@ class MojoAuth
   # Create a new credential set
   # @param [String] id the identity to be asserted in the credentials
   # @param [String] secret the shared secret with which to create credentials
+  # @param [Integer] ttl the duration for which the credentials should be valid in seconds
   # @return [Hash] signed credentials, keys :username and :password
-  def self.create_credentials(id: 'foo', secret: required)
-    username = id
+  def self.create_credentials(id: nil, secret: required, ttl: DAY_IN_SECONDS)
+    expiry_timestamp = (Time.now.utc + ttl).to_i
+    username = [expiry_timestamp, id].join(':')
     { username: username, password: new(secret).sign(username) }
   end
 
@@ -31,7 +35,7 @@ class MojoAuth
   # @param [String] secret the shared secret against which to test credentials
   # @return [true, false] wether or not the credentials are valid (were created using the specified secret)
   def self.test_credentials(credentials, secret: required)
-    new(secret).sign(credentials[:username]) == credentials[:password]
+    new(secret).assert(credentials)
   end
 
   # Work-around for required named parameters pre Ruby 2.1
@@ -46,5 +50,12 @@ class MojoAuth
 
   def sign(username)
     Base64.encode64(OpenSSL::HMAC.digest('sha1', @secret, username))
+  end
+
+  def assert(credentials)
+    expiry_timestamp, id = credentials[:username].split(':')
+    return false if expiry_timestamp.to_i < Time.now.utc.to_i
+    return false unless sign(credentials[:username]) == credentials[:password]
+    id || true
   end
 end
