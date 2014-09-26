@@ -14,4 +14,3 @@ matrix:
 before_script:
   - sudo rm /dev/random
   - sudo ln -s /dev/urandom /dev/random
-
