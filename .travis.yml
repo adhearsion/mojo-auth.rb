@@ -9,6 +9,8 @@ matrix:
   include:
     - rvm: jruby
       env: JRUBY_OPTS="--2.0"
+  allow_failures:
+    - rvm: jruby
 before_script:
   - sudo rm /dev/random
   - sudo ln -s /dev/urandom /dev/random
