@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/mojo_auth@2x.png)](https://rubygems.org/gems/mojo_auth)
+[![Gem Version](https://badge.fury.io/rb/mojo_auth.svg)](http://badge.fury.io/rb/mojo_auth)
 [![Build Status](https://travis-ci.org/mojolingo/mojo-auth.rb.svg?branch=develop)](http://travis-ci.org/mojolingo/mojo-auth.rb)
 [![Dependency Status](https://gemnasium.com/mojolingo/mojo-auth.rb.png?travis)](https://gemnasium.com/mojolingo/mojo-auth.rb)
 [![Code Climate](https://codeclimate.com/github/mojolingo/mojo-auth.rb/badges/gpa.svg)](https://codeclimate.com/github/mojolingo/mojo-auth.rb)
