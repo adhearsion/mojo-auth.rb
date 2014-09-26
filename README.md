@@ -1,9 +1,9 @@
-[![Gem Version](https://badge.fury.io/rb/mojo_auth.png)](https://rubygems.org/gems/mojo_auth)
-[![Build Status](https://secure.travis-ci.org/mojolingo/mojo-auth.rb.png?branch=develop)](http://travis-ci.org/mojolingo/mojo-auth.rb)
+[![Gem Version](https://badge.fury.io/rb/mojo_auth@2x.png)](https://rubygems.org/gems/mojo_auth)
+[![Build Status](https://travis-ci.org/mojolingo/mojo-auth.rb.svg?branch=develop)](http://travis-ci.org/mojolingo/mojo-auth.rb)
 [![Dependency Status](https://gemnasium.com/mojolingo/mojo-auth.rb.png?travis)](https://gemnasium.com/mojolingo/mojo-auth.rb)
-[![Code Climate](https://codeclimate.com/github/mojolingo/mojo-auth.rb.png)](https://codeclimate.com/github/mojolingo/mojo-auth.rb)
-[![Coverage Status](https://coveralls.io/repos/mojolingo/mojo-auth.rb/badge.png?branch=develop)](https://coveralls.io/r/mojolingo/mojo-auth.rb)
-[![Inline docs](http://inch-ci.org/github/mojolingo/mojo-auth.rb.png?branch=develop)](http://inch-ci.org/github/mojolingo/mojo-auth.rb)
+[![Code Climate](https://codeclimate.com/github/mojolingo/mojo-auth.rb/badges/gpa.svg)](https://codeclimate.com/github/mojolingo/mojo-auth.rb)
+[![Coverage Status](https://img.shields.io/coveralls/mojolingo/mojo-auth.rb.svg)](https://coveralls.io/r/mojolingo/mojo-auth.rb?branch=develop)
+[![Inline docs](http://inch-ci.org/github/mojolingo/mojo-auth.rb.svg?branch=develop)](http://inch-ci.org/github/mojolingo/mojo-auth.rb)
 
 # mojo_auth
 
