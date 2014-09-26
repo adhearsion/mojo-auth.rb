@@ -51,6 +51,22 @@ describe MojoAuth do
           expect(described_class.test_credentials(credentials, secret: secret)).to be false
         end
       end
+
+      describe 'after expiry of a custom TTL' do
+        let(:ttl) { 200 }
+        let(:credentials) { described_class.create_credentials(secret: secret, ttl: ttl) }
+
+        around do |example|
+          credentials # Create the credentials before advancing the time
+          Timecop.freeze(Time.now + ttl + 1) do
+            example.run
+          end
+        end
+
+        it 'tests false' do
+          expect(described_class.test_credentials(credentials, secret: secret)).to be false
+        end
+      end
     end
 
     context 'with an asserted ID' do
@@ -79,6 +95,22 @@ describe MojoAuth do
         around do |example|
           credentials # Create the credentials before advancing the time
           Timecop.freeze(Time.now + MojoAuth::DAY_IN_SECONDS + 1) do
+            example.run
+          end
+        end
+
+        it 'tests false' do
+          expect(described_class.test_credentials(credentials, secret: secret)).to be false
+        end
+      end
+
+      describe 'after expiry of a custom TTL' do
+        let(:ttl) { 200 }
+        let(:credentials) { described_class.create_credentials(id: id, secret: secret, ttl: ttl) }
+
+        around do |example|
+          credentials # Create the credentials before advancing the time
+          Timecop.freeze(Time.now + ttl + 1) do
             example.run
           end
         end
