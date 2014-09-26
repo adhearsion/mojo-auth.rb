@@ -1,3 +1,10 @@
+[![Gem Version](https://badge.fury.io/rb/mojo_auth.png)](https://rubygems.org/gems/mojo_auth)
+[![Build Status](https://secure.travis-ci.org/mojolingo/mojo-auth.rb.png?branch=develop)](http://travis-ci.org/mojolingo/mojo-auth.rb)
+[![Dependency Status](https://gemnasium.com/mojolingo/mojo-auth.rb.png?travis)](https://gemnasium.com/mojolingo/mojo-auth.rb)
+[![Code Climate](https://codeclimate.com/github/mojolingo/mojo-auth.rb.png)](https://codeclimate.com/github/mojolingo/mojo-auth.rb)
+[![Coverage Status](https://coveralls.io/repos/mojolingo/mojo-auth.rb/badge.png?branch=develop)](https://coveralls.io/r/mojolingo/mojo-auth.rb)
+[![Inline docs](http://inch-ci.org/github/mojolingo/mojo-auth.rb.png?branch=develop)](http://inch-ci.org/github/mojolingo/mojo-auth.rb)
+
 # mojo_auth
 
 [MojoAuth](http://mojolingo.com/mojoauth) is a set of standard approaches to cross-app authentication based on [Hash-based Message Authentication Codes](http://en.wikipedia.org/wiki/Hash-based_message_authentication_code) (HMAC), inspired by ["A REST API For Access To TURN Services"](http://tools.ietf.org/html/draft-uberti-behave-turn-rest).
