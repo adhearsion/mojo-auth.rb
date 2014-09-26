@@ -39,5 +39,28 @@ describe MojoAuth do
         end
       end
     end
+
+    context 'with an asserted ID' do
+      let(:id) { SecureRandom.uuid }
+      let(:credentials) { described_class.create_credentials(id: id, secret: secret) }
+
+      describe 'for the generated credentials' do
+        it 'tests true' do
+          expect(described_class.test_credentials(credentials, secret: secret)).to be true
+        end
+      end
+
+      describe 'with an incorrect password' do
+        it 'tests false' do
+          expect(described_class.test_credentials({ username: credentials[:username], password: 'foobar' }, secret: secret)).to be false
+        end
+      end
+
+      describe 'with a different secret' do
+        it 'tests false' do
+          expect(described_class.test_credentials(credentials, secret: 'something_else')).to be false
+        end
+      end
+    end
   end
 end

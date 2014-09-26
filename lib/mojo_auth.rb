@@ -18,10 +18,11 @@ class MojoAuth
   end
 
   # Create a new credential set
+  # @param [String] id the identity to be asserted in the credentials
   # @param [String] secret the shared secret with which to create credentials
   # @return [Hash] signed credentials, keys :username and :password
-  def self.create_credentials(secret: required)
-    username = 'foo'
+  def self.create_credentials(id: 'foo', secret: required)
+    username = id
     { username: username, password: new(secret).sign(username) }
   end
 
