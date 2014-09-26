@@ -1,7 +1,7 @@
 require 'bundler/setup'
 Bundler.setup
 
-require 'mojo-auth'
+require 'mojo_auth'
 
-RSpec.configure do |config|
+RSpec.configure do
 end

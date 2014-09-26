@@ -1,4 +1,4 @@
-# mojo-auth
+# mojo_auth
 
 [MojoAuth](http://mojolingo.com/mojoauth) is a set of standard approaches to cross-app authentication based on [Hash-based Message Authentication Codes](http://en.wikipedia.org/wiki/Hash-based_message_authentication_code) (HMAC), inspired by ["A REST API For Access To TURN Services"](http://tools.ietf.org/html/draft-uberti-behave-turn-rest).
 
@@ -7,7 +7,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'mojo-auth'
+gem 'mojo_auth'
 ```
 
 And then execute:
@@ -16,12 +16,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install mojo-auth
+    $ gem install mojo_auth
 
 ## Usage
 
 ```ruby
-require 'mojo-auth'
+require 'mojo_auth'
 
 # Generate a shared secret
 secret = MojoAuth.create_secret # => "tiKNcQixBMNJMwf4s+QM1hrb+m0vxGchD1/TxKBC6MesBuLPWewEXwM3b/ka\nZuB4sTCLyB1A7xpnaNKqe7sIjQ==\n"
@@ -39,7 +39,7 @@ MojoAuth.test_credentials(username: '1411779321:foobar', password: 'correctpassw
 
 ## Contributing
 
-1. [Fork it](https://github.com/mojolingo/mojo-auth.rb/fork)
+1. [Fork it](https://github.com/mojolingo/mojo_auth.rb/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
