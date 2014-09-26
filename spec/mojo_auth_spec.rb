@@ -39,6 +39,12 @@ describe MojoAuth do
         end
       end
 
+      describe 'when attempting to extend the expiration' do
+        it 'tests false' do
+          expect(described_class.test_credentials({ username: "#{(Time.now + 100_000).to_i}", password: credentials[:password] }, secret: secret)).to be false
+        end
+      end
+
       describe 'after the default TTL (1 day) expires' do
         around do |example|
           credentials # Create the credentials before advancing the time
@@ -88,6 +94,12 @@ describe MojoAuth do
       describe 'with a different secret' do
         it 'tests false' do
           expect(described_class.test_credentials(credentials, secret: 'something_else')).to be false
+        end
+      end
+
+      describe 'when attempting to extend the expiration' do
+        it 'tests false' do
+          expect(described_class.test_credentials({ username: "#{(Time.now + 100_000).to_i}:#{id}", password: credentials[:password] }, secret: secret)).to be false
         end
       end
 
