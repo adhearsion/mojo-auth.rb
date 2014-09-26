@@ -27,7 +27,9 @@ class MojoAuth
   end
 
   # Test that credentials are valid
-  # @param [Hash]
+  # @param [Hash] credentials a set of credentials including a :username and a :password
+  # @param [String] secret the shared secret against which to test credentials
+  # @return [true, false] wether or not the credentials are valid (were created using the specified secret)
   def self.test_credentials(credentials, secret: required)
     new(secret).sign(credentials[:username]) == credentials[:password]
   end
