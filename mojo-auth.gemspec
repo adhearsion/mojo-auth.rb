@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['ben@langfeld.me']
   spec.summary       = 'Implementation of MojoAuth in Ruby'
   spec.description   = 'MojoAuth is a set of standard approaches to cross-app authentication based on HMAC.'
-  spec.homepage      = 'https://github.com/mojolingo/mojo_auth.rb'
+  spec.homepage      = 'https://github.com/mojolingo/mojo-auth.rb'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
